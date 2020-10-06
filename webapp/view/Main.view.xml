@@ -1,0 +1,40 @@
+<mvc:View controllerName="vdsdemo.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m">
+	<App id="main">
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<Table id="vdsList" class="sapUiResponsiveMargin" width="auto" items="{ path : '/VDS_Files', sorter : { path : 'VDS_KEY'}}">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="{i18n>ListTitle}"/>
+								<ToolbarSpacer/>
+								<SearchField width="30%" search="onFilterList"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column minScreenWidth="Small" demandPopin="true">
+								<Text text="Key"/>
+							</Column>
+							<Column>
+								<Text text="File Name"/>
+							</Column>
+							<Column minScreenWidth="Small" demandPopin="true">
+								<Text text="File URL"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Navigation" press="onPress">
+								<cells>
+									<ObjectNumber number="{VDS_KEY}"/>
+									<Text text="{File_Name}"/>
+									<Text text="{File_Path}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
